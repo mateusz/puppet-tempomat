@@ -1,0 +1,15 @@
+[Unit]
+Description=tollbooth
+
+[Service]
+ExecStart=/usr/local/bin/tollbooth \
+	-listen-port <%= scope['tollbooth::listen_port'] %> \
+	-backend <%= scope['tollbooth::backend'] %> \
+	-log-file /var/log/tollbooth/app.log \
+	-stats-file /var/log/tollbooth/stats.log \
+	<%= @trusted_proxies_flag %> \
+	<%= @debug_flag %>
+User=<%= scope['tollbooth::user'] %>
+
+[Install]
+WantedBy=multi-user.target

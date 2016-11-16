@@ -1,0 +1,25 @@
+{
+  "name": "mateusz-tollbooth",
+  "version": "0.1.0",
+  "author": "Mateusz U",
+  "summary": "Dynamically throttle web trafic based on the actually consumed cpu load.",
+  "license": "BSD-3-Clause",
+  "source": "https://github.com/mateusz/puppet-tollbooth",
+  "project_page": "https://github.com/mateusz/puppet-tollbooth",
+  "issues_url": "https://github.com/mateusz/puppet-tollbooth/issues",
+  "dependencies": [
+	  {"name":"camptocamp/systemd","version_requirement":">= 0.4.0 < 0.5.0"}
+  ],
+  "data_provider": null,
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    }
+  ],
+  "tags": [
+    "throttling"
+  ]
+}

@@ -1,6 +1,6 @@
 class tollbooth(
 	$ensure = 'present',
-	$version,
+	$version = '0.1.0',
 	$debug = false,
 	$trusted_proxies = ['127.0.0.1'],
 	$user = 'www-data',

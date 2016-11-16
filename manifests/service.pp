@@ -9,11 +9,24 @@ class tollbooth::service inherits tollbooth {
 		$trusted_proxies_flag = " -trusted-proxies $trusted_proxies_string"
 	}
 
-	::systemd::unit_file { "tollbooth.service":
-		content => template("tollbooth/systemd_service.erb")
-	} -> service { 'tollbooth':
-		ensure => true,
-		enable => true,
+	if $tollbooth::ensure=='present' {
+
+		::systemd::unit_file { "tollbooth.service":
+			ensure => $tollbooth::ensure,
+			content => template("tollbooth/systemd_service.erb")
+		} -> service { 'tollbooth':
+			ensure => $service_ensure,
+			enable => true,
+		}
+
+	} else {
+
+		service { 'tollbooth':
+			ensure => 'stopped',
+		}->::systemd::unit_file { "tollbooth.service":
+			ensure => absent,
+		}
+
 	}
 
 }

@@ -1,6 +1,6 @@
 {
   "name": "mateusz-tollbooth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Mateusz U",
   "summary": "Dynamically throttle web trafic based on the actually consumed cpu load.",
   "license": "BSD-3-Clause",

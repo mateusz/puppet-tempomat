@@ -1,4 +1,5 @@
 class tollbooth(
+	$ensure = 'present',
 	$version,
 	$debug = false,
 	$trusted_proxies = ['127.0.0.1'],

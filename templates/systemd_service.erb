@@ -1,15 +1,15 @@
 [Unit]
-Description=tollbooth
+Description=tempomat
 
 [Service]
-ExecStart=/usr/local/bin/tollbooth \
-	-listen-port <%= scope['tollbooth::listen_port'] %> \
-	-backend <%= scope['tollbooth::backend'] %> \
-	-log-file /var/log/tollbooth/app.log \
-	-stats-file /var/log/tollbooth/stats.log \
+ExecStart=/usr/local/bin/tempomat \
+	-listen-port <%= scope['tempomat::listen_port'] %> \
+	-backend <%= scope['tempomat::backend'] %> \
+	-log-file /var/log/tempomat/app.log \
+	-stats-file /var/log/tempomat/stats.log \
 	<%= @trusted_proxies_flag %> \
 	<%= @debug_flag %>
-User=<%= scope['tollbooth::user'] %>
+User=<%= scope['tempomat::user'] %>
 
 [Install]
 WantedBy=multi-user.target

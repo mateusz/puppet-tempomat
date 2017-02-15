@@ -1,4 +1,4 @@
-class tollbooth(
+class tempomat(
 	$ensure = 'present',
 	$version = '0.1.0',
 	$debug = false,
@@ -21,7 +21,7 @@ class tollbooth(
 		validate_string($http_proxy)
 	}
 
-	class { 'tollbooth::install': }->
-	class { 'tollbooth::service': }
+	class { 'tempomat::install': }->
+	class { 'tempomat::service': }
 
 }

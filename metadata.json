@@ -1,12 +1,12 @@
 {
-  "name": "mateusz-tollbooth",
-  "version": "0.1.2",
+  "name": "mateusz-tempomat",
+  "version": "0.2.0",
   "author": "Mateusz U",
   "summary": "Dynamically throttle web trafic based on the actually consumed cpu load.",
   "license": "BSD-3-Clause",
-  "source": "https://github.com/mateusz/puppet-tollbooth",
-  "project_page": "https://github.com/mateusz/puppet-tollbooth",
-  "issues_url": "https://github.com/mateusz/puppet-tollbooth/issues",
+  "source": "https://github.com/mateusz/puppet-tempomat",
+  "project_page": "https://github.com/mateusz/puppet-tempomat",
+  "issues_url": "https://github.com/mateusz/puppet-tempomat/issues",
   "dependencies": [
   ],
   "data_provider": null,

@@ -1,39 +1,39 @@
-class tollbooth::service inherits tollbooth {
+class tempomat::service inherits tempomat {
 
 	Exec {
 		path => "/sbin:/bin:/usr/bin:/usr/sbin",
 	}
 
-	if $tollbooth::debug {
+	if $tempomat::debug {
 		$debug_flag = ' -debug '
 	}
 
-	if $tollbooth::trusted_proxies {
-		$trusted_proxies_string = join($tollbooth::trusted_proxies, ',')
+	if $tempomat::trusted_proxies {
+		$trusted_proxies_string = join($tempomat::trusted_proxies, ',')
 		$trusted_proxies_flag = " -trusted-proxies $trusted_proxies_string"
 	}
 
-	if $tollbooth::ensure!='absent' {
+	if $tempomat::ensure!='absent' {
 
-		file { '/etc/systemd/system/tollbooth.service':
+		file { '/etc/systemd/system/tempomat.service':
 			ensure => file,
 			owner  => 'root',
 			group  => 'root',
 			mode   => '0644',
-			content => template("tollbooth/systemd_service.erb")
+			content => template("tempomat/systemd_service.erb")
 		} ~> exec { 'systemctl-daemon-reload':
       command => 'systemctl daemon-reload',
 			refreshonly => true,
-		} -> service { 'tollbooth':
+		} -> service { 'tempomat':
 			ensure => 'running',
 			enable => true,
 		}
 
 	} else {
 
-		service { 'tollbooth':
+		service { 'tempomat':
 			ensure => 'stopped',
-		} -> file { '/etc/systemd/system/tollbooth.service':
+		} -> file { '/etc/systemd/system/tempomat.service':
 			ensure => 'absent',
 		} ~> exec { 'systemctl-daemon-reload':
       command => 'systemctl daemon-reload',

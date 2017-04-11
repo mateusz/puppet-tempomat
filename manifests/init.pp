@@ -1,6 +1,6 @@
 class tempomat(
 	$ensure = 'present',
-	$version = '0.2.0',
+	$version = '0.2.1',
 	$user = 'www-data',
 	$group = 'www-data',
 	$http_proxy = undef,
@@ -14,12 +14,6 @@ class tempomat(
 		validate_string($http_proxy)
 	}
 	validate_hash($config)
-	if $config['logFile'] {
-		fail('logFile is forbidden, automatically set by this module')
-	}
-	if $config['statsFile'] {
-		fail('statsFile is forbidden, automatically set by this module')
-	}
 
 	class { 'tempomat::install': }->
 	class { 'tempomat::service': }

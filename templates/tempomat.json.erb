@@ -2,14 +2,12 @@
 <%- @config.each do |key,value| -%>
 	<%- if ['graphitePrefix'].include?(key) -%>
 	"<%= key %>": "<%= value.gsub(/HOSTNAME/,@hostname) %>",
-	<%- elsif ['debug','lowCreditThreshold','listenPort','slash32Share',
+	<%- elsif ['debug','syslogStats','lowCreditThreshold','listenPort','slash32Share',
 			'slash24Share','slash16Share','userAgentShare','hashMaxLen'].include?(key) -%>
 	"<%= key %>": <%= value %>,
 	<%- else -%>
 	"<%= key %>": "<%= value %>",
 	<%- end -%>
 <%- end -%>
-	"logFile": "/var/log/tempomat/app.log",
-	"statsFile": "/var/log/tempomat/stats.log"
-
+	"dummy": "dummy"
 }

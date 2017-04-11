@@ -29,11 +29,5 @@ class tempomat::install inherits tempomat {
 	}->exec { "setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/tempomat":
 		# Gives permission to bind to ports < 1024
 		unless => 'getcap /usr/local/bin/tempomat | grep cap_net_bind_service+eip',
-	}->file { '/var/log/tempomat':
-		ensure => 'directory',
-		mode => 0755,
-		owner => $user,
-		group => $group,
-		require => [ User[$user], Group[$group], ],
 	}
 }

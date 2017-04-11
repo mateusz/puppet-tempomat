@@ -2,14 +2,10 @@
 Description=tempomat
 
 [Service]
-ExecStart=/usr/local/bin/tempomat \
-	-listen-port <%= scope['tempomat::listen_port'] %> \
-	-backend <%= scope['tempomat::backend'] %> \
-	-log-file /var/log/tempomat/app.log \
-	-stats-file /var/log/tempomat/stats.log \
-	<%= @trusted_proxies_flag %> \
-	<%= @debug_flag %>
+ExecStart=/usr/local/bin/tempomat
 User=<%= scope['tempomat::user'] %>
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target

@@ -1,6 +1,6 @@
 class tempomat(
 	$ensure = 'present',
-	$version = '0.2.2',
+	$version = '0.2.3',
 	$user = 'www-data',
 	$group = 'www-data',
 	$http_proxy = undef,

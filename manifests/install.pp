@@ -10,14 +10,14 @@ class tempomat::install inherits tempomat {
 		}
 	}
 
-	archive { "/tmp/doctor-${tempomat::version}-linux-amd64.tgz":
+	archive { "/tmp/tempomat-doctor-${tempomat::version}-linux-amd64.tgz":
 		ensure => $tempomat::ensure,
 		provider => 'curl',
-		source => "https://github.com/mateusz/tempomat/releases/download/${tempomat::version}/doctor-${tempomat::version}-linux-amd64.tgz",
+		source => "https://github.com/mateusz/tempomat/releases/download/${tempomat::version}/tempomat-doctor-${tempomat::version}-linux-amd64.tgz",
 		cleanup => true,
 		extract => true,
 		extract_path => "/usr/local/bin",
-		creates => "/usr/local/bin/doctor",
+		creates => "/usr/local/bin/tempomat-doctor",
 	}->archive { "/tmp/tempomat-${tempomat::version}-linux-amd64.tgz":
 		ensure => $tempomat::ensure,
 		provider => 'curl',
